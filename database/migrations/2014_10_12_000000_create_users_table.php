@@ -14,11 +14,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
+            $table->string('job_category')->nullable();     // 職種
+            $table->string('industry')->nullable();         // 業界
+            $table->integer('wage')->nullable();            // 単価
+            $table->text('notes')->nullable();              // メモ
+            $table->string('status')->default('正社員');     // 雇用体系
+            $table->integer('is_workable')->default(0);     // 0 労働可能  5 退職済み
+            $table->tinyInteger('role')->default(5);        // 1 管理者  5 一般ユーザ
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->softDeletes();  // 論理削除
             $table->rememberToken();
             $table->timestamps();
         });
