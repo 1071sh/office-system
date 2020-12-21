@@ -58,6 +58,8 @@ class ProjectController extends Controller
             $project->name        = $request->name;
             $project->industry    = $request->industry;
             $project->client_id   = $request->client;
+            $project->start_date  = $request->start_date;
+            $project->end_date    = $request->end_date ;
             $project->billing     = $request->billing;
             $project->notes       = $request->notes;
             $project->save();
@@ -77,10 +79,12 @@ class ProjectController extends Controller
         $users = User::select('id', 'name', 'wage')->get();
         $project = Project::find($id);
         $clients = Client::all();
+        $industries = config('industries');
         return view('project.edit')->with([
             'project' => $project,
             'users' => $users,
             'clients' => $clients,
+            'industries' => $industries
         ]);
     }
 

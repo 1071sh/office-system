@@ -6,21 +6,10 @@
                 :value="user.id"
                 type="checkbox"
                 name="checkbox[]"
-                :checked="user.id == user.id"
             />
             <label class="form-check-label" :for="user.id">
                 {{ user.name }}</label
             >
-            <input
-                type="range"
-                :id="user.id"
-                min="0"
-                max="10"
-                step="1"
-                value="5"
-                @chenge="getVal"
-            />
-            <span id="value">50</span>
         </div>
     </div>
 </template>

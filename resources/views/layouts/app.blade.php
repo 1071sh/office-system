@@ -48,6 +48,7 @@
                         </li>
                         @endif
                         @else
+                        <li class="nav-item"><a class="nav-link" href="">月別表示</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">ユーザー管理</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('project.index') }}">プロジェクト管理</a></li>
                         <li class="nav-item dropdown">
