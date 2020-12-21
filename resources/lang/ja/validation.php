@@ -145,6 +145,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => '名前',
+        'wage' => '単価',
+        'status' => '雇用形態',
+        'billing' => '予算'
+    ],
 
 ];
